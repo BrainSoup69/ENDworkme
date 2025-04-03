@@ -50,17 +50,6 @@ public class Player : MonoBehaviour
 
     private bool isMoving = false;
 
-    #region Emotes
-
-    public KeyCode emoteKey_1 = KeyCode.Keypad1;
-    public AnimationClip emote_1;
-
-    public KeyCode emoteKey_2 = KeyCode.Keypad2;
-    public AnimationClip emote_2;
-
-    public KeyCode emoteKey_3 = KeyCode.Keypad3;
-    public AnimationClip emote_3;
-
     #endregion
 
     #region StatsInfo
@@ -109,7 +98,6 @@ public class Player : MonoBehaviour
 
     private Vector3 originalScale;
 
-    #endregion
 
     #region Head Bob
 

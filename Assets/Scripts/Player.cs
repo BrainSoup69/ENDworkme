@@ -42,12 +42,13 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Movement Variables
-
+    [Header("Movement")]
     public bool playerCanMove = true;
-    public float walkSpeed = 5f;
     public float maxVelocityChange = 10f;
+    public float walkSpeed = 5f;
+    public float sprintSpeed = 7f;
 
-    private bool isWalking = false;
+    private bool isMoving = false;
 
     #region Emotes
 
@@ -76,7 +77,6 @@ public class Player : MonoBehaviour
     public bool enableSprint = true;
     public bool unlimitedSprint = false;
     public KeyCode sprintKey = KeyCode.LeftShift;
-    public float sprintSpeed = 7f;
     public float sprintDuration = 5f;
     public float sprintCooldown = .5f;
     public float sprintFOV = 80f;
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
     {
         {
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //    rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         if (lockCursor)
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-   
+
         #region Camera Zoom
 
         if (enableZoom)
@@ -291,10 +291,10 @@ public class Player : MonoBehaviour
     private Vector3 hiddenPosition = new Vector3(-800f, 0, 0);
     private Vector3 visiblePosition = new Vector3(0, 0, 0);
     private float slideSpeed = 10f;
-   
 
-    public Image stats_Image1; 
-    public Image stats_Image2; 
+
+    public Image stats_Image1;
+    public Image stats_Image2;
 
     private void UpdateImages()
     {
@@ -308,7 +308,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(infoKey))
         {
-            isStatsVisible = !isStatsVisible; 
+            isStatsVisible = !isStatsVisible;
             UpdateImages();
         }
 
@@ -321,7 +321,7 @@ public class Player : MonoBehaviour
             );
         }
 
-      if (stats_Info != null)
+        if (stats_Info != null)
         {
             CanvasGroup cg = stats_Info.GetComponent<CanvasGroup>();
             if (cg != null)
@@ -344,36 +344,26 @@ public class Player : MonoBehaviour
         if (playerCanMove)
         {
 
-
+            float maxSpeed = 0f;
             if (MoveDirection().x != 0 || MoveDirection().z != 0 && isGrounded)
             {
-                isWalking = true;
+                isMoving = true;
             }
             else
             {
-                isWalking = false;
+                isMoving = false;
             }
 
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
             {
-                
-                Vector3 velocity = rb.linearVelocity;
-                Vector3 velocityChange = (MoveDirection() - velocity);
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                velocityChange.y = 0;
 
-                if (velocityChange.x != 0 || velocityChange.z != 0)
+                isSprinting = true;
+
+                if (hideBarWhenFull && !unlimitedSprint)
                 {
-                    isSprinting = true;
-
-                    if (hideBarWhenFull && !unlimitedSprint)
-                    {
-                        sprintBarCG.alpha += 5 * Time.deltaTime;
-                    }
+                    sprintBarCG.alpha += 5 * Time.deltaTime;
                 }
-
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                maxSpeed = sprintSpeed;
             }
 
             else
@@ -385,22 +375,37 @@ public class Player : MonoBehaviour
                     sprintBarCG.alpha -= 3 * Time.deltaTime;
                 }
 
-
-                rb.AddForce(MoveDirection()*walkSpeed, ForceMode.VelocityChange);
+                maxSpeed = walkSpeed;
             }
+            if (isMoving) rb.AddForce(MoveDirection() * maxVelocityChange, ForceMode.VelocityChange);
+
+            if (rb.linearVelocity.magnitude > maxSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            }
+            AllignToDirection(MoveDirection());
         }
 
         #endregion
     }
     Vector3 MoveDirection()
     {
+        Vector3 newDirection;
         Vector3 cameraForward = Camera.main.transform.forward;
+        cameraForward.Normalize();
         Vector3 cameraRight = Camera.main.transform.right;
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-    float x= targetVelocity.x * cameraForward.x;
-        float z = targetVelocity.z * cameraRight.z;
-        targetVelocity = new Vector3(x, 0, z);
-        return targetVelocity;
+        cameraRight.Normalize();
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        newDirection = cameraRight * x + cameraForward * z;
+        newDirection = new Vector3(newDirection.x, 0f, newDirection.z);
+        return newDirection;
+    }
+
+    void AllignToDirection(Vector3 dir)
+    {
+        if (dir.magnitude > 0)
+            rb.rotation = Quaternion.LookRotation(dir);
     }
     private void CheckGround()
     {
@@ -430,7 +435,7 @@ public class Player : MonoBehaviour
     }
     private void HeadBob()
     {
-        if (isWalking)
+        if (isMoving)
         {
             if (isSprinting)
             {

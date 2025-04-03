@@ -1071,7 +1071,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815296158}
-  - component: {fileID: 815296161}
   - component: {fileID: 815296159}
   - component: {fileID: 815296160}
   m_Layer: 0
@@ -1122,21 +1121,15 @@ MonoBehaviour:
   zoomFOV: 30
   zoomStepTime: 5
   playerCanMove: 1
-  walkSpeed: 3
   maxVelocityChange: 10
-  emoteKey_1: 257
-  emote_1: {fileID: -5975228301937288544, guid: 113a64bb61398604380a4d9e11a7a6c4, type: 3}
-  emoteKey_2: 258
-  emote_2: {fileID: 3297085147143836459, guid: 113a64bb61398604380a4d9e11a7a6c4, type: 3}
-  emoteKey_3: 259
-  emote_3: {fileID: 9219106467421869150, guid: 113a64bb61398604380a4d9e11a7a6c4, type: 3}
+  walkSpeed: 3
+  sprintSpeed: 7
   infoKey: 9
   stats_Information: {fileID: 159595148}
   stats_Info: {fileID: 942125533}
   enableSprint: 1
   unlimitedSprint: 0
   sprintKey: 304
-  sprintSpeed: 7
   sprintDuration: 3
   sprintCooldown: 3.7
   sprintFOV: 80
@@ -1180,29 +1173,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!95 &815296161
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815296157}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d36b4e7234f1964bb5abfb77879700e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_CollisionDetection: 1
 --- !u!1 &822282062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +1884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1961,7 +1932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7424507524287867659, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7424507524287867659, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2020,6 +1991,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1108596639}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108596640}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108596641}
   m_SourcePrefab: {fileID: 100100000, guid: 1fd94670f5a45fd4c9470dd0dc3227f0, type: 3}
 --- !u!4 &1108596637 stripped
 Transform:
@@ -2053,7 +2030,45 @@ CapsuleCollider:
   m_Radius: 0.47
   m_Height: 0.88
   m_Direction: 1
-  m_Center: {x: 0, y: 0.99, z: -0.15}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1108596640
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108596638}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d36b4e7234f1964bb5abfb77879700e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1108596641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108596638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff7e1fe47534884c8caee4b26a039fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1108596640}
+  emoteKey_1: 257
+  emoteKey_2: 258
+  emoteKey_3: 259
 --- !u!1 &1149716262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2365642950474440402, guid: 3bb1a44f7057ed4428c537913f819496, type: 3}

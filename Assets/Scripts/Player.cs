@@ -387,6 +387,7 @@ public class Player : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         newDirection = cameraRight * x + cameraForward * z;
         newDirection = new Vector3(newDirection.x, 0f, newDirection.z);
+        newDirection.Normalize();
         return newDirection;
     }
 

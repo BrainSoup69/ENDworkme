@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.47055835, y: 1, z: 0.86718756, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 0.27196968, z: 0.12765014, w: 0}
   gain:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: 0}
@@ -483,19 +483,19 @@ MonoBehaviour:
     m_Value: 0
   tintColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   bloomMip:
     m_OverrideState: 1
     m_Value: 1
   firstFlareIntensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 10.81
   secondaryFlareIntensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 172.2
   warpedFlareIntensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 12.23
   warpedFlareScale:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1}

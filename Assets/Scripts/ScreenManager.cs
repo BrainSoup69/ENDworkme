@@ -4,8 +4,8 @@ using System.Collections;
 
 public class ScreenManager : MonoBehaviour
 {
-    public CanvasGroup loadingScreen;
-    public CanvasGroup introScreen;
+    [SerializeField] private CanvasGroup loadingScreen;
+    [SerializeField] private CanvasGroup introScreen;
     public float fadeSpeed = 1f;
     public float loadingDuration = 2f;
 

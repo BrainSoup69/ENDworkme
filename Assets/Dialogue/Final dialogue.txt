@@ -1,0 +1,32 @@
+Got character
+
+Skinny 
+
+"Well, You're Skinny!"
+
+"And I do not mean by the body- err- I mean, err-... That's their name! Their name is Skinny! They choose that name for some reason."
+
+"Well, if you press Tab and see, he isn't much fast like any normal fish, probably because he got no scales. But he can be very charming of course! And what's that? Well to simplified, the more Charm you are, the less that the monster will attack you. Sounds silly I know but that how it works here."
+
+"Well! I shall now escort you to their habitat for your first mission, there you'll meet Cauldy the Cauldron Chameleon. There, they will give you your tasks!"
+
+"Goodluck 'player name'"
+
+
+Kip
+
+"Awwww aren't you so fluffy and cute!!!"
+
+"Kip is such a scardy fellow, it what's make them so frantic and so speedy! Tho, her charming is a little lower then Skinny which would make the monsters try to attack her more, Her stamina and Speed makes up for that!"
+
+"Well! I shall now escort you to their habitat for your first mission, there you'll meet Cauldy the Cauldron Chameleon. There, they will give you your tasks!"
+
+"Goodluck 'player name'"
+
+
+
+
+if I can added, all items the player look will have differences responses
+
+Skinny will analyzed the object
+Kip will only say bok bok bok

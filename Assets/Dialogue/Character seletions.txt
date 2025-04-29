@@ -1,0 +1,79 @@
+When player have an item now, talking to characters
+
+Talk to Yin and Yang
+
+"Oh Yang look! I think 'player name' want to play as us!" - Yin
+
+"Gosh, I would love to see little me scrambling around. But not today!" - Yang
+
+"Sorry player! Our dignity are too high for you to be fooling around with little us!" - Yin
+
+"Sorry! hehehe~ " - Yang
+
+
+Talk to Twinkle star 
+
+"Hello 'player name'! Just talk to them and hold out the snacks to the critters! Then you be able to play as them!"
+
+Talk to Twinkle star but second time
+
+"Hello 'Player name'! ... Wait."
+
+"O-OH!!! That's for me?!" Twinkle spluttering, blushing as they see that.
+
+"G-Gosh... I don't know what to say. I'm so flattered, Honored even! But oh... It break my heart that I have to turn you down."
+
+"B-But don't be sad now! I promise you be able to play as a fun-size me in the future! Promise!"
+
+"( Creator notes here : if this game blows up, then it possible. :> )
+
+
+Talk to Kip 
+
+"Bok bok bok"
+
+option : you hold out the snack.
+
+"Bok Bok Bok!!!"
+
+She seem very happy. Give her the snack?
+"Yes" or "No"
+
+if yes
+"Congratulation! You can now play as Kip!! Press TAB to check their info!" - by Twinkle star
+
+
+Talk to Skinny
+
+"Blub blub blub"
+(why is this bone still saying that?)
+
+option : you hold out the snack.
+
+"... You know what? Yes, Yes I want- No. I need that."
+
+Now the fish say Go fish or Go bone... Wait, isn't it supposed to be Go big or go home???
+"Yes" or "No"
+
+if yes
+"Congratulation! You are now bones and alive!! Press TAB to check their info!" - by Twinkle star
+
+
+If talked to all characters and say's no. 
+And talk to Twinkle star
+
+"Hey 'player name'"
+
+"..."
+
+"Is there erm... Really no critter that you want to play as?... Not one of those two?..."
+
+responses : "Nope" or "I'll take another look"
+
+"Oh, well... I do have... One more... The problem is that he don't talk so much... I can let you play as him of course! I just... Are you sure?"
+
+Responses : "I love me a good challenges" or "I'll take another look."
+
+"Well then... Goodluck player!"
+
+secret character unlocked!

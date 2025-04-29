@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using System;
+
+using DG.Tweening;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -14,7 +18,7 @@ public class Player : MonoBehaviour
 
     #region Camera Movement Variables
 
-    public Camera playerCamera;
+   
 
     public float fov = 60f;
     public bool cameraCanMove = true;
@@ -24,9 +28,6 @@ public class Player : MonoBehaviour
     #endregion
 
     public bool lockCursor = true;
-
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
 
     #region Camera Zoom Variables
 
@@ -44,18 +45,17 @@ public class Player : MonoBehaviour
     #region Movement Variables
     [Header("Movement")]
     public bool playerCanMove = true;
-    public float maxVelocityChange = 10f;
-    public float walkSpeed = 5f;
+     public float walkSpeed = 5f;
     public float sprintSpeed = 7f;
 
-    private bool isMoving = false;
+   [HideInInspector] public bool isMoving = false;
 
     #endregion
 
     #region StatsInfo
 
     public KeyCode infoKey = KeyCode.Tab;
-
+    public bool useStats = false;
     public Image stats_Information;
     public Image stats_Info;
 
@@ -71,13 +71,15 @@ public class Player : MonoBehaviour
     public float sprintFOV = 80f;
     public float sprintFOVStepTime = 10f;
 
+    
     public bool useSprintBar = true;
     public bool hideBarWhenFull = true;
     public Image sprintBarBG;
     public Image sprintBar;
 
     private CanvasGroup sprintBarCG;
-    private bool isSprinting = false;
+    [HideInInspector]   public  bool isSprinting = false;
+    private bool wasSprinting;
     private float sprintRemaining;
     private bool isSprintCooldown = false;
     private float sprintCooldownReset;
@@ -99,20 +101,10 @@ public class Player : MonoBehaviour
     private Vector3 originalScale;
 
 
-    #region Head Bob
-
-    public bool enableHeadBob = true;
-    public float bobSpeed = 10f;
-    public Vector3 bobAmount = new Vector3(.15f, .05f, 0f);
-
-    private float timer = 0;
-    #endregion
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
-        playerCamera.fieldOfView = fov;
+        Camera.main.fieldOfView = fov;
         originalScale = transform.localScale;
 
         if (!unlimitedSprint)
@@ -135,10 +127,10 @@ public class Player : MonoBehaviour
         }
         #region Sprint Bar
 
-        sprintBarCG = GetComponentInChildren<CanvasGroup>();
-
         if (useSprintBar)
         {
+        sprintBarCG = GetComponentInChildren<CanvasGroup>();
+
             sprintBarBG.gameObject.SetActive(true);
             sprintBar.gameObject.SetActive(true);
 
@@ -152,6 +144,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if (sprintBarBG == null ||sprintBar==null) return;
             sprintBarBG.gameObject.SetActive(false);
             sprintBar.gameObject.SetActive(false);
         }
@@ -194,11 +187,11 @@ public class Player : MonoBehaviour
 
             if (isZoomed)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
+                Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
             }
             else if (!isZoomed && !isSprinting)
             {
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, fov, zoomStepTime * Time.deltaTime);
+                Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, fov, zoomStepTime * Time.deltaTime);
             }
         }
 
@@ -211,7 +204,7 @@ public class Player : MonoBehaviour
             if (isSprinting)
             {
                 isZoomed = false;
-                playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
+                Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
                 if (!unlimitedSprint)
                 {
@@ -267,10 +260,6 @@ public class Player : MonoBehaviour
         HandleStatsInfo();
         CheckGround();
 
-        if (enableHeadBob)
-        {
-            HeadBob();
-        }
     }
 
     #region StatsInfo
@@ -347,7 +336,7 @@ public class Player : MonoBehaviour
 
                 isSprinting = true;
 
-                if (hideBarWhenFull && !unlimitedSprint)
+                if (useSprintBar&& hideBarWhenFull && !unlimitedSprint)
                 {
                     sprintBarCG.alpha += 5 * Time.deltaTime;
                 }
@@ -358,14 +347,15 @@ public class Player : MonoBehaviour
             {
                 isSprinting = false;
 
-                if (hideBarWhenFull && sprintRemaining == sprintDuration)
+                if (useSprintBar && hideBarWhenFull && sprintRemaining == sprintDuration)
                 {
                     sprintBarCG.alpha -= 3 * Time.deltaTime;
                 }
 
                 maxSpeed = walkSpeed;
             }
-            if (isMoving) rb.AddForce(MoveDirection() * maxVelocityChange, ForceMode.VelocityChange);
+            float currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
+            if (isMoving) rb.AddForce(MoveDirection() * currentSpeed, ForceMode.VelocityChange);
 
             if (rb.linearVelocity.magnitude > maxSpeed)
             {
@@ -420,16 +410,6 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
             isGrounded = false;
-        }
-    }
-    private void HeadBob()
-    {
-        if (isMoving)
-        {
-            if (isSprinting)
-            {
-                timer += Time.deltaTime * (bobSpeed + sprintSpeed);
-            }
         }
     }
 }

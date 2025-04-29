@@ -1,0 +1,272 @@
+"Hngg... Oww.... My hearing aids..."
+
+"Ughhh... Player... What was that for??? Hngg... I knew I should hide that thing somewhere much better."
+
+"W-Wait.. Player?! Like, an actual Player?!? Oh no! Ahhh!! I'm not ready!"
+
+"Wait here a moment please?? I'll get the place light up and ready for you!"
+
+Loading screen . . . 
+'Technical Difficulties'
+'I am so sorry for this inconvenience' - by Twinkle star
+
+"Ah! Welcome Welcome!!!"
+
+"My greatest apology for sleeping, I should have been more prepared for visitors."
+
+"It just I never expect that it would come true!"
+
+"Ask him what he mean by that"  or  "???"
+
+"Ah, I should explain more."
+
+"Welcome to World of Wishes! (Name by me of course!!)
+My name is Twinkle star and as you could tell by the name, this world are made possible by wishes!"
+
+"The more wishes people or other characters here made, the more functions they become. And the reason why I have been waiting 
+for you. It because I (yes, the one who grant wishes) made a wish for some guidance."
+
+"You see... There have been some problems going on. And sadly, with my power alone is not enough. I am completely useless and unable
+to save this world from something that been going on.."
+
+"So that's why I asked for your help!"
+
+"I am not forcing you to do anything you do not want to, so please! Have a look around! Talk to the critters!"
+"Talk to me when you're ready!"
+
+This time, all dialogue will be respond by Twinkle star
+
+Check Stump 
+"It's here because BunBun love to sleep in there so much, it's not in the cave with others because he love his own peace and quiet."
+
+Check logs 
+"It took a lot of work to build this place, so me and my friends got lots. These are just extra's so we're still thinking on what to do
+or create more with the left overs."
+
+Check paints
+"Most of them are Oil painting, I picked the best quality to draw my best friends! I sure hope they take time to noticed all my hard works when they see my paintings."
+
+Check window
+"Kip and Skinny love the smell of pine woods, so I make sure to plant a bunch of them here! I do agree it made the place smell more rustic and nice."
+
+Check Airhorn
+"L-Let's not do that again... I beg you."
+
+Check paintings 
+"It a drawing of my friends!! I couldn't fit them all so I might redraw them again!"
+
+Check paintings again
+"It a drawing of my friends!!"
+
+Check paintings again.
+"It a drawing of my friends!!"
+
+Check paintings again. .
+"It a drawing of my friends!!"
+
+Check paintings again. . .
+"It a drawing of my friends!!"
+
+"..."
+
+Check paintings again. . .
+"It a drawing of my friends!!"
+
+"..."
+
+"............................" fade into static
+
+". . ."
+
+"Please..."
+
+"Please save my friends..."
+
+"I miss them... I miss hanging out with them... I miss talking with them... I miss looking at them..."
+
+"I can't do this alone... I am useless..."
+
+"I beg you... I give you anything... Please..."
+
+"Save... My... Dear... Friends..."
+
+"..."
+
+
+
+
+
+
+Everything back to normal
+"..."
+
+"It a painting of my dear best friends!! I love them all with my whole heart!"
+
+Check painting again
+"It a painting of my dear best friends!!"
+
+
+Talk to Kip
+"bok bok bok"
+
+Talk to Skinny
+"Blub blub blub"
+
+*it just say blub.*
+
+
+Talk to Yin and Yang
+"Hello! Welcome to our mini circus tent!" - Yin
+
+"Hey hey! Welcome! It very nice to meet you!" - Yang
+
+"Hope you have a wonderful time here!" - Yin
+
+
+Dialog that change the scenario
+
+Talk to Yin and Yang again
+"Hello again!" - Yin
+
+"Huh, Didn't we talk to you twice before?" - Yang
+
+"Well nonsense! I love talking to our new friends, no matter how much times we have to repeat! hehehe~" - Yin
+
+"Well, I hate repeating things over and over again. So let get to know each others!!" - Yang
+
+"Yeah!! What's your name?" - Yin
+
+
+Choices
+"..."  or  Turn back
+
+
+If respond "Turn back"
+
+"Ok! We see you later!" - Yin
+
+"Talk to you later!" - Yang
+
+
+If respond "..."
+
+"No name??? No No No We can't have that now! That's so unacceptable!" - Yin
+
+"Twinkle haven't gave you one yet?? Are you sure you want us to give you a name?" - Yang
+
+
+Choices
+"You can choose a name for me!" or "I'll talk to Twinkle star first then."
+
+
+If respond "I'll talk to Twinkle star first then."
+
+"Good choice! Twinkle know more names idea's then us both combined!" - Yin
+
+"Heyyyyyy! Don't give less credit to ourselves now Yin, we're the best!" - Yang
+
+"Of course we are the best Yang! Bwahaha!" - Yin
+
+
+If respond "You can choose a name for me!"
+
+"Y-You really trust us this much?... Now you're going to make me cry." - Yin
+
+"Gosh Yin, we gotta pick a really good name now! Something unique and sounds so cool!" - Yang
+
+"Hmmm... I got an idea, I heard it from our bestie and I just love the name so much!" - Yin
+
+"How about... Curaxu!" - Yin
+
+"That's a very unique name! I heard it mean a Golden God! Look who's more amazing then us both!" - Yang
+
+"Welcome to the world Curaxu!" - Yin
+
+
+
+If talk to Twinkle after this encounter.
+
+"Welcome back Player! Did you have fun touring on this spot? Talking to others? Please give me feedback on decorating more on this place! I can added more lamps or plants!"
+
+"Oh right! I almost forgot! Your name!! Do you have a name by chance?"
+
+Respond "Well, I got some news" or "I got a name!"
+
+"Oh? You have a name? How amazing news! What's your name?" 
+
+"..."
+
+"...Interesting..."
+
+"If you don't mind me asking. Where did you acquired that amazing name?"
+
+"It by us!!" - Yin
+
+"Yep!! And we love it!" - Yang
+
+"Oh now nice! ... Say, where did you get that name from?" 
+
+"From Lemoon of course, he kept talking about that name and the golden god." - Yin
+
+"So we think it fitting to call him after that too." - Yang
+
+"Oh hohoho, how nice! But I thought Doctor Appl told you two to not visits him for the time being... You know, he's feeling... Unwell."
+
+"Well, you visited him daily!" - Yin
+
+"Mhm! And besides, we got Doctor Appl nurse approval to see Lemoon too." - Yang
+
+"..."
+
+"That's right! I just can't leave him alone in his room all times! But are you sure naming Player after someone we don't know or someone who's so special from Lemoon is a good idea? I fear for his reaction after all."
+
+"Oh don't worry! What's the harm on having a cool name?" - Yin
+
+"Yep! Even I get jealous of that name." - Yang
+
+"If you say so..." 
+
+"Welcome to the World of Wishes, Curaxu! And before you begin your mission, I got something for you!"
+
+*you acquire an item.*
+
+"With this item, it a very special item of course! You can choose a character for you to play as! Every characters loves it! 
+But I should let you know that some character might feel not ready for you to puppet as their fun-size around yet, you have to build friendship with them first!"
+
+"But I'm confident the critters don't mind! Try talking to them first! See which of the two you really want to play as!
+Return when you got the critter, then your mission can begin!"
+
+
+
+
+Normal dialogue when didn't talk to Yin and Yang first.
+"Welcome back Player! Did you have fun touring on this spot? Talking to others? Please give me feedback on decorating more on this place! I can added more lamps or plants!"
+
+"Oh right! I almost forgot! Your name!! Do you have a name by chance?"
+
+"..." or "I got no name yet."
+
+"Oh, Well that's unfortunate that you either don't remember your name or haven't got one yet."
+
+"Tell you what! I know a name for you! What about... Justice? It fit you perfectly!"
+
+"Please tell me you like that name... If not, then I'll find another."
+
+Respond "Justice... is fine." 
+
+"D-Don't worry, you don't have to be nice. In the future, I can find a suiting name for you. Maybe even let you have your own! But for now, please... Bear with that name. My greatest apology..."
+
+Respond "I love that name actually."
+
+"Ah! That such a relief!!! You have no idea how happy I am to have you accept that name!"
+
+
+"Welcome to the World of Wishes, Justice! And before you begin your mission, I got something for you!"
+
+*you acquire an item.*
+
+"With this item, it a very special item of course! You can choose a character for you to play as! Every characters loves it! 
+But I should let you know that some character might feel not ready for you to puppet as their fun-size around yet, you have to build friendship with them first!"
+
+"But I'm confident the critters don't mind! Try talking to them first! See which of the two you really want to play as!
+Return when you got the critter, then your mission can begin!"

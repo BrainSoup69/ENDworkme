@@ -1,0 +1,30 @@
+First Dialogue
+Player spawn in the Lobby.
+
+Check Stump 
+"It's a stump."
+
+Check logs 
+"It's a log."
+
+Check paintings 
+"It's a painting. Of some characters you don't know yet."
+
+Check paints
+"It's a paint buckets."
+
+Check curtain
+"The curtains shut tightly by magic."
+
+Check cage
+"It's a bar. It took dark to see the other side."
+
+Check window
+"It took dark to see the other side."
+
+Check Twinkle star
+"They seem to be in a deep slumber. You try to shake but they still in a deep sleep.
+Maybe there are something that you could use to wake them up."
+
+Check Airhorn
+"This seem like something that could get someone attentions."

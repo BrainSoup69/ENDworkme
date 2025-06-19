@@ -29,13 +29,15 @@ public class Interactable : MonoBehaviour
     }
     public void ResetText()
     {
-     if(currentMessage<message.Length)   message[currentMessage].SetActive(false);
+        if (message.Length==0) return;
+        if (currentMessage<message.Length)   message[currentMessage].SetActive(false);
         currentMessage = 0;
         firstMessage = true;
     }
 
     public void NextText()
     {
+        if (message.Length==0) return;
         if (firstMessage)
         {
             currentMessage = 0;

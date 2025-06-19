@@ -153,13 +153,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221451881603772130}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15212339, y: -0, z: -0, w: 0.98836154}
+  m_LocalRotation: {x: 0.15212342, y: 0, z: 0, w: 0.98836154}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4958435599115161135}
-  m_LocalEulerAnglesHint: {x: 20.84, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3283087632569285411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,13 +395,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026494022312408650}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.009075585, z: 0, w: 0.9999589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6310637234039883658}
-  m_LocalEulerAnglesHint: {x: 0, y: 1.04, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2193583431119542126
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,9 +917,9 @@ MonoBehaviour:
   zoomFOV: 30
   zoomStepTime: 5
   playerCanMove: 1
-  maxVelocityChange: 10
   walkSpeed: 3
   sprintSpeed: 7
+  isMoving: 0
   infoKey: 9
   useStats: 0
   stats_Information: {fileID: 6763838648356334176}
@@ -935,13 +935,11 @@ MonoBehaviour:
   hideBarWhenFull: 1
   sprintBarBG: {fileID: 6776065255596762659}
   sprintBar: {fileID: 3298079346661088143}
+  isSprinting: 0
   enableJump: 1
   jumpKey: 32
   jumpPower: 5
   speedReduction: 0.5
-  enableHeadBob: 0
-  bobSpeed: 10
-  bobAmount: {x: 0.15, y: 0.05, z: 0}
   stats_Image1: {fileID: 6763838648356334176}
   stats_Image2: {fileID: 5116044476820384214}
 --- !u!54 &8206891672624989343
@@ -1509,9 +1507,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.47
-  m_Height: 0.88
+  m_Height: 0
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.18}
 --- !u!95 &1889329316481614569
 Animator:
   serializedVersion: 7

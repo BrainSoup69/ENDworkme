@@ -111,10 +111,17 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: NewEvent
+        functionName: UpdateU
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0.333
+        floatParameter: 0.32
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: UpdateV
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.4
         intParameter: 0
         messageOptions: 0
       transformMask: []
@@ -160,7 +167,7 @@ ModelImporter:
         floatParameter: 0.4
         intParameter: 0
         messageOptions: 0
-      - time: 0.49648377
+      - time: 0.49980053
         functionName: UpdateU
         data: 
         objectReferenceParameter: {instanceID: 0}

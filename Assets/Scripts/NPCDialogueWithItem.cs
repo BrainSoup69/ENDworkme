@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
-
 public class NPCDialogueWithItem : MonoBehaviour
 {
     public GameObject[] normalDialogue;
@@ -10,10 +9,14 @@ public class NPCDialogueWithItem : MonoBehaviour
     public string repeatLine;
 
     public string requiredItemName = "Item_Airhorn";
+    public bool playAnimationWithItem = false;
+    public Animator animator;
+    public string normalAnimationTrigger;
+    public string specialAnimationTrigger;
+
 
     public Text dialogueText;
     public GameObject dialogueUI;
-    public Animator npcAnimator;
 
     private bool isPlayerInRange = false;
     private bool hasHadNormalDialogue = false;
@@ -27,45 +30,64 @@ public class NPCDialogueWithItem : MonoBehaviour
         playerInventory = player.GetComponent<Inventory>();
     }
 
-    void Update()
+    public void CheckDialogue()
     {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+
+        if (playerInventory != null && playerInventory.HasItem(requiredItemName))
         {
-            if (playerInventory != null && playerInventory.HasItem(requiredItemName))
+            if (!hasHadSpecialDialogue)
             {
-                if (!hasHadSpecialDialogue)
-                {
-                    npcAnimator.SetTrigger("TalkSpecial");
-                    GameObject[] specialDialogue1 = specialDialogue;
-                    StartCoroutine(PlayDialogue(specialDialogue1, true));
-                }
-                else
-                {
-                    dialogueUI.SetActive(true);
-                    dialogueText.text = repeatLine;
-                }
+                //   GetComponent<PlayAnimationOnClick>().PlayAnimation(specialAnimationName);
+                GameObject[] specialDialogue1 = specialDialogue;
+                StartCoroutine(PlayDialogue(specialDialogue1, true, true));
+                //     animator.SetTrigger(specialAnimationTrigger);
+
             }
             else
             {
-                if (!hasHadNormalDialogue)
-                {
-                    StartCoroutine(PlayDialogue(normalDialogue, false));
-                }
-                else
-                {
-                    dialogueUI.SetActive(true);
-                    dialogueText.text = repeatLine;
-                }
+                dialogueUI.SetActive(true);
+                dialogueText.text = repeatLine;
             }
         }
+        else
+        {
+            if (!hasHadNormalDialogue)
+            {
+                StartCoroutine(PlayDialogue(normalDialogue, false, false));
+            }
+            else
+            {
+                dialogueUI.SetActive(true);
+                dialogueText.text = repeatLine;
+            }
+        }
+
     }
 
-    private IEnumerator PlayDialogue(GameObject[] specialDialogue1, bool v)
+    private IEnumerator PlayDialogue(GameObject[] specialDialogue1, bool isSpecial, bool hasAnimation)
     {
-        throw new NotImplementedException();
+        //  dialogueUI.SetActive(true);
+        //Dit klopt nog niet denk ik. Maar heb de methoden even aangevuld op basis van de input.
+        foreach (GameObject go in specialDialogue1)
+        {
+            go.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            go.SetActive(false);
+        }
+
+        //  dialogueText.text = repeatLine;
+        if (hasAnimation)
+        {
+            if (isSpecial) animator.SetTrigger(specialAnimationTrigger);
+            else animator.SetTrigger(normalAnimationTrigger);
+        }
+
+
+        if (isSpecial) hasHadSpecialDialogue = true;
+        else hasHadNormalDialogue = true;
     }
 
-    private IEnumerator PlayDialogue(string[] lines, bool isSpecial)
+    private IEnumerator PlayDialogue(string[] lines, bool isSpecial, bool hasAnimation)
     {
         dialogueUI.SetActive(true);
 
@@ -76,6 +98,13 @@ public class NPCDialogueWithItem : MonoBehaviour
         }
 
         dialogueText.text = repeatLine;
+
+        if (hasAnimation)
+        {
+            if (isSpecial) animator.SetTrigger(specialAnimationTrigger);
+            else animator.SetTrigger(normalAnimationTrigger);
+        }
+
 
         if (isSpecial) hasHadSpecialDialogue = true;
         else hasHadNormalDialogue = true;

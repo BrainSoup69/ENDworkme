@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(string itemName)
     {
-        if (!items.Contains(itemName))
+        if (!HasItem(itemName))
             items.Add(itemName);
     }
 }

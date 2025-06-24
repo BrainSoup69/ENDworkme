@@ -7273,6 +7273,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267384996}
   m_CullTransparentMesh: 1
+--- !u!1 &271329654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 271329656}
+  - component: {fileID: 271329655}
+  m_Layer: 0
+  m_Name: Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &271329655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271329654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f03a2d7a9e42e4a8367585dcc7765a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTimeBeforeLoad: 1.5
+  loadingAnimator: {fileID: 0}
+--- !u!4 &271329656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271329654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.315711, y: 2.5086455, z: -8.4209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271367195
 GameObject:
   m_ObjectHideFlags: 0
@@ -35511,6 +35557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c4fe38e759c541b9008fde2421dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needsItem: 0
   requiredItemName: TwinkleStar
   animator: {fileID: 0}
   repeatingDialogue:
@@ -35522,18 +35569,6 @@ MonoBehaviour:
     animationTriggerID: 
   dialogues:
   - dialogue: {fileID: 2125114769}
-    dialogueEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    hasAnimation: 0
-    animationTriggerID: 
-  - dialogue: {fileID: 0}
-    dialogueEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    hasAnimation: 0
-    animationTriggerID: 
-  - dialogue: {fileID: 0}
     dialogueEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -35556,7 +35591,31 @@ MonoBehaviour:
   loop: 1
   onInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1096176324}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: DelayedReset
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1096176324}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: NextText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1096176325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43940,6 +43999,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4391633317294532644, guid: 2db67998b3315b743bca3670e79dd738, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 271329655}
     - target: {fileID: 8989277409707164507, guid: 2db67998b3315b743bca3670e79dd738, type: 3}
       propertyPath: m_Name
       value: FPS_prefab
@@ -53725,7 +53788,31 @@ MonoBehaviour:
   loop: 1
   onInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1945501847}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: NextText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1945501847}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: DelayedReset
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1945501848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60401,6 +60488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c4fe38e759c541b9008fde2421dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needsItem: 0
   requiredItemName: Item_AirHorn
   animator: {fileID: 3656423833639809281}
   repeatingDialogue: []
@@ -61475,7 +61563,31 @@ MonoBehaviour:
   loop: 1
   onInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5259563302973813355}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: NextText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5259563302973813355}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: DelayedReset
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5287706184613068369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65046,7 +65158,31 @@ MonoBehaviour:
   loop: 1
   onInteraction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7874663764768576344}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: DelayedReset
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7874663764768576344}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: NextText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &7882887045751726572
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -66370,3 +66506,4 @@ SceneRoots:
   - {fileID: 1767465267}
   - {fileID: 1273613868}
   - {fileID: 1550163819}
+  - {fileID: 271329656}

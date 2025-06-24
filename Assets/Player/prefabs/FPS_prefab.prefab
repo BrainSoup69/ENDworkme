@@ -721,6 +721,7 @@ MonoBehaviour:
   useStats: 0
   stats_Information: {fileID: 8270696683872976981}
   stats_Info: {fileID: 1345255127173890495}
+  freeCamera: {fileID: 2653679939009249625}
   enableSprint: 1
   unlimitedSprint: 0
   sprintKey: 304
@@ -737,6 +738,7 @@ MonoBehaviour:
   jumpKey: 32
   jumpPower: 5
   speedReduction: 0.5
+  isStatsVisible: 0
   stats_Image1: {fileID: 8270696683872976981}
   stats_Image2: {fileID: 1345255127173890495}
 --- !u!114 &7851412873413090644
@@ -840,7 +842,6 @@ GameObject:
   - component: {fileID: 6289130682393032761}
   - component: {fileID: 4391633317294532644}
   - component: {fileID: 1832915246184147856}
-  - component: {fileID: 2689385936803438468}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -950,16 +951,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 9704d58e6ec894244810812f859e703e, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FadeSceneLoader, Assembly-CSharp
+        m_MethodName: LoadSceneWithFade
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: UI_Scene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1832915246184147856
@@ -976,19 +977,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTimeBeforeLoad: 1.5
   loadingAnimator: {fileID: 7926710976704666743}
---- !u!114 &2689385936803438468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138110816883970670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9704d58e6ec894244810812f859e703e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 8924039369075067886}
 --- !u!1 &2984701210481554829
 GameObject:
   m_ObjectHideFlags: 0

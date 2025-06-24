@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.VisualScripting;
-using System;
+using UnityEngine.Rendering;
 
-using DG.Tweening;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -18,7 +16,7 @@ public class Player : MonoBehaviour
 
     #region Camera Movement Variables
 
-   
+
 
     public float fov = 60f;
     public bool cameraCanMove = true;
@@ -45,10 +43,10 @@ public class Player : MonoBehaviour
     #region Movement Variables
     [Header("Movement")]
     public bool playerCanMove = true;
-     public float walkSpeed = 5f;
+    public float walkSpeed = 5f;
     public float sprintSpeed = 7f;
 
-   [HideInInspector] public bool isMoving = false;
+    [HideInInspector] public bool isMoving = false;
 
     #endregion
 
@@ -58,6 +56,7 @@ public class Player : MonoBehaviour
     public bool useStats = false;
     public Image stats_Information;
     public Image stats_Info;
+    public FreeCamera freeCamera;
 
     #endregion
 
@@ -71,14 +70,14 @@ public class Player : MonoBehaviour
     public float sprintFOV = 80f;
     public float sprintFOVStepTime = 10f;
 
-    
+
     public bool useSprintBar = true;
     public bool hideBarWhenFull = true;
     public Image sprintBarBG;
     public Image sprintBar;
 
     private CanvasGroup sprintBarCG;
-    [HideInInspector]   public  bool isSprinting = false;
+    [HideInInspector] public bool isSprinting = false;
     private bool wasSprinting;
     private float sprintRemaining;
     private bool isSprintCooldown = false;
@@ -129,7 +128,7 @@ public class Player : MonoBehaviour
 
         if (useSprintBar)
         {
-        sprintBarCG = GetComponentInChildren<CanvasGroup>();
+            sprintBarCG = GetComponentInChildren<CanvasGroup>();
 
             sprintBarBG.gameObject.SetActive(true);
             sprintBar.gameObject.SetActive(true);
@@ -144,7 +143,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (sprintBarBG == null ||sprintBar==null) return;
+            if (sprintBarBG == null || sprintBar == null) return;
             sprintBarBG.gameObject.SetActive(false);
             sprintBar.gameObject.SetActive(false);
         }
@@ -264,7 +263,7 @@ public class Player : MonoBehaviour
 
     #region StatsInfo
 
-    private bool isStatsVisible = false;
+    [HideInInspector] public bool isStatsVisible = false;
     private Vector3 hiddenPosition = new Vector3(-800f, 0, 0);
     private Vector3 visiblePosition = new Vector3(0, 0, 0);
     private float slideSpeed = 10f;
@@ -287,6 +286,10 @@ public class Player : MonoBehaviour
         {
             isStatsVisible = !isStatsVisible;
             UpdateImages();
+
+            Cursor.lockState = isStatsVisible ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = isStatsVisible;
+            freeCamera.enabled = !isStatsVisible;
         }
 
         if (stats_Information != null)
@@ -336,7 +339,7 @@ public class Player : MonoBehaviour
 
                 isSprinting = true;
 
-                if (useSprintBar&& hideBarWhenFull && !unlimitedSprint)
+                if (useSprintBar && hideBarWhenFull && !unlimitedSprint)
                 {
                     sprintBarCG.alpha += 5 * Time.deltaTime;
                 }

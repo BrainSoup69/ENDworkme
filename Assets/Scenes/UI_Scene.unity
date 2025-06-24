@@ -289,9 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f03a2d7a9e42e4a8367585dcc7765a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Lobby_Scene_Normal
-  loadingAnimator: {fileID: 1998759033}
   waitTimeBeforeLoad: 1.5
+  loadingAnimator: {fileID: 1998759033}
 --- !u!1 &146848760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,9 +2568,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 555f6098a8ea2804dbbc4a8eb883b622, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1354141470}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

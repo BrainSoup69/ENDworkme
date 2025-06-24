@@ -2,29 +2,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using TMPro;
+using UnityEngine.Events;
+
 public class NPCDialogueWithItem : MonoBehaviour
 {
-    public GameObject[] normalDialogue;
-    public GameObject[] specialDialogue;
-    public string repeatLine;
-
+    public bool needsItem = false;
     public string requiredItemName = "Item_Airhorn";
-    public bool playAnimationWithItem = false;
     public Animator animator;
-    public string normalAnimationTrigger;
-    public string specialAnimationTrigger;
+    public DialogueWithEvent[] repeatingDialogue;
+    public DialogueWithEvent[] dialogues;//zet hier in de inspector alle dialogue objecten in, ze worden 1 voor 1 aangezet.
 
-
-    public Text dialogueText;
-    public GameObject dialogueUI;
-
-    private bool isPlayerInRange = false;
-    private bool hasHadNormalDialogue = false;
-    private bool hasHadSpecialDialogue = false;
 
     private Inventory playerInventory;
-
-    void Start()
+    private bool dialogueStarted = false;
+    void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerInventory = player.GetComponent<Inventory>();
@@ -32,98 +24,65 @@ public class NPCDialogueWithItem : MonoBehaviour
 
     public void CheckDialogue()
     {
+        if (dialogueStarted) return;
 
-        if (playerInventory != null && playerInventory.HasItem(requiredItemName))
+        if (!needsItem)
         {
-            if (!hasHadSpecialDialogue)
-            {
-                //   GetComponent<PlayAnimationOnClick>().PlayAnimation(specialAnimationName);
-                GameObject[] specialDialogue1 = specialDialogue;
-                StartCoroutine(PlayDialogue(specialDialogue1, true, true));
-                //     animator.SetTrigger(specialAnimationTrigger);
-
-            }
-            else
-            {
-                dialogueUI.SetActive(true);
-                dialogueText.text = repeatLine;
-            }
+            StartCoroutine(PlayDialogue(dialogues));
         }
         else
         {
-            if (!hasHadNormalDialogue)
+            if (playerInventory != null && playerInventory.HasItem(requiredItemName))
             {
-                StartCoroutine(PlayDialogue(normalDialogue, false, false));
+                StartCoroutine(PlayDialogue(dialogues));
             }
             else
             {
-                dialogueUI.SetActive(true);
-                dialogueText.text = repeatLine;
+                StartCoroutine(PlayDialogue(repeatingDialogue));
             }
         }
 
     }
 
-    private IEnumerator PlayDialogue(GameObject[] specialDialogue1, bool isSpecial, bool hasAnimation)
+    private IEnumerator PlayDialogue(DialogueWithEvent[] dialogue)
     {
-        //  dialogueUI.SetActive(true);
-        //Dit klopt nog niet denk ik. Maar heb de methoden even aangevuld op basis van de input.
-        foreach (GameObject go in specialDialogue1)
+        dialogueStarted = true;
+        foreach (DialogueWithEvent dia in dialogue)
         {
-            go.SetActive(true);
-            yield return new WaitForSeconds(2f);
-            go.SetActive(false);
+            if (dia.hasAnimation)
+            {
+                animator?.SetTrigger(dia.animationTriggerID);
+                yield return new WaitForSeconds(4f);
+            }
+
+            dia.dialogue?.SetActive(true);
+            bool breakLoop = false;
+            yield return new WaitForSeconds(0.3f);//wait a bit before detecting inputs.
+            while (!breakLoop)
+            {
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    breakLoop = true;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+
+
+            dia.dialogue?.SetActive(false);
+            dia.dialogueEvent?.Invoke();
         }
-
-        //  dialogueText.text = repeatLine;
-        if (hasAnimation)
-        {
-            if (isSpecial) animator.SetTrigger(specialAnimationTrigger);
-            else animator.SetTrigger(normalAnimationTrigger);
-        }
-
-
-        if (isSpecial) hasHadSpecialDialogue = true;
-        else hasHadNormalDialogue = true;
+        dialogueStarted = false;
     }
+}
 
-    private IEnumerator PlayDialogue(string[] lines, bool isSpecial, bool hasAnimation)
-    {
-        dialogueUI.SetActive(true);
-
-        foreach (string line in lines)
-        {
-            dialogueText.text = line;
-            yield return new WaitForSeconds(2f);
-        }
-
-        dialogueText.text = repeatLine;
-
-        if (hasAnimation)
-        {
-            if (isSpecial) animator.SetTrigger(specialAnimationTrigger);
-            else animator.SetTrigger(normalAnimationTrigger);
-        }
-
-
-        if (isSpecial) hasHadSpecialDialogue = true;
-        else hasHadNormalDialogue = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-            dialogueUI.SetActive(false);
-        }
-    }
+[Serializable]
+public class DialogueWithEvent
+{
+    public GameObject dialogue;
+    public UnityEvent dialogueEvent;
+    public bool hasAnimation;
+    public string animationTriggerID;
 }

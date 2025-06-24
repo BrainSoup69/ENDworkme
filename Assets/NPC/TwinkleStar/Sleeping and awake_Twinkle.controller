@@ -41,7 +41,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: AwakeTrigger
+    m_ConditionEvent: animationTrigger
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2850833240576866311}
@@ -93,13 +93,7 @@ AnimatorController:
   m_Name: Sleeping and awake_Twinkle
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: AwakeTrigger
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: RegularDialogue
+  - m_Name: animationTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

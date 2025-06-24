@@ -16,7 +16,7 @@ public class Interactable : MonoBehaviour
 
     public void Interaction()
     {
-        onInteraction.Invoke();
+        onInteraction?.Invoke();
     }
 
     public void EnableOutline()

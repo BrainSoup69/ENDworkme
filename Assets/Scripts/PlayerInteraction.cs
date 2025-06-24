@@ -7,16 +7,16 @@ public class PlayerInteraction : MonoBehaviour
 
     public float playerReach = 3f;
     Interactable currentInteractable;
- 
 
- void Update()
+
+    void Update()
     {
 
         CheckInteraction();
         if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
             currentInteractable.Interaction();
-            currentInteractable.NextText();
+            // currentInteractable.NextText();
         }
 
     }
@@ -32,25 +32,24 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (hit.collider.CompareTag("Interactable"))
             {
-              
+
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>();
                 if (newInteractable != null && newInteractable.enabled)
                 {
                     SetNewCurrentInteractable(newInteractable);
                     currentInteractable.EnableOutline();
                 }
-            
+
             }
-         
+
         }
         else
         {
             if (currentInteractable == null) return;
-            currentInteractable.ResetText();
             currentInteractable.DissableOutline();
             currentInteractable = null;
         }
-      
+
     }
 
 
@@ -61,5 +60,5 @@ public class PlayerInteraction : MonoBehaviour
 
     }
 
-    
+
 }
